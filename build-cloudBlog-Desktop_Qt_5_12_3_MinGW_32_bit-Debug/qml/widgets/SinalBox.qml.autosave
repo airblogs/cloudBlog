@@ -1,0 +1,105 @@
+﻿import QtQuick 2.3
+import QtQuick.Layouts 1.1
+import Felgo 3.0
+
+Item
+{
+    id:box;
+    
+    property var item: modelData;
+    property string icon:item&&item.icon||"";
+    property string handle:item &&item.handle||"";
+    property string time:item&&item.time||"";
+    property string text:item&&item.text||""
+    property list image:item&&item.images||"";
+    //图片内容为多张
+    property bool actionsHidden:item&& item.action;
+    property int loveAcount: item&&item.loveAcount||0;
+    property  color loveColor:"#ffac33";
+    property  color retWeetColor : "#77b255";
+    property color inactiveColor: "#ccc";
+    
+    width: parent?parent.width:0;
+    height: Math.max(dp(48),innerBox.height);
+    
+    
+    signal selected(int index);
+    signal profileSelected(int index);
+    
+    Rectangle
+    {
+    color: boxArea.pressed?"#eee":"#fff"  
+    anchors.fill: parent
+        Behavior on color 
+         {   
+            ColorAnimation
+               {
+                   duration: 200
+                   easing.type:Easing.InOutQuart;
+              }    
+        }
+    }  
+    MouseArea
+    {
+        id:boxArea;    
+        enabled: box.enabled
+        anchors.fill: parent
+        onClicked: selected(typeof index!=="undefined"?index:0)
+    }
+    
+    GridLayout
+    {
+    id:innerBox;
+    column: 4;
+    rowSpacing: dp(4);
+    columnSpacing: dp(8);
+    x:dp(10)
+    width: parent.width-2*x
+    
+    Item {
+    id: topSpacer;
+    width:parent.width;
+    height: dp(6);
+    Layout.columnSpan: parent.columns;
+    Layout.fillWidth: trues;
+    }
+    
+    RoundedImage
+    {
+    id:authorHead
+    img.source: box.icon;
+    img.defaultSource: "../defult.png";
+    Layout.preferredWidth: dp(50)
+    Layout.preferredHeight: dp(50)
+    Layout.rowSpan:image.visibel?4:3;
+    Layout.alignment: Qt.AlignTop;
+    
+    MouseArea
+    {
+    anchors.fill: parent;
+    onClicked: profileSelected(index||0);
+    }
+    }
+    
+    Text {
+    id: authorNameText
+    elide: Text.ElideRight
+    maximumLineCount: 1
+    color: Theme.textColor
+    font.family: Theme.normalFont.name
+    font.bold: true;
+    font.pixelSize: dp(14)
+    lineHeight: dp(16)
+    lineHeightMode: Text.fix
+    
+    
+    
+}
+    
+    
+    
+
+    }
+
+
+}

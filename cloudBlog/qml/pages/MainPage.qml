@@ -1,5 +1,10 @@
 ﻿import Felgo 3.0
 import QtQuick 2.5
+import QtQuick.Controls 1.2
+import "."
+Page
+{
+
   Navigation {
           id: navigation
           navigationMode:navigationModeTabs
@@ -12,10 +17,9 @@ import QtQuick 2.5
     NavigationItem  {
       title: qsTr("Look");
       icon: IconType.cloud
+
       NavigationStack {
-         Page
-         {
-         }
+          ItemPage{}
       }
     }
 
@@ -25,45 +29,11 @@ import QtQuick 2.5
       icon: IconType.list
 
       NavigationStack {
-       Page {
-                AppDrawer {
-                  //all items inside AppDrawer will be placed in the drawer area
 
-                  id: drawer
+         MePage{}
 
-                  z: 1 //put drawer on top of other content
 
-                  Rectangle { //background for drawer
-                    anchors.fill: parent
-                    color: "white"
-                  }
-
-                  AppButton {
-                    anchors.centerIn: parent
-                    text: "Test"
-                    onClicked: {
-                      testTxt.text = "Button in drawer Clicked"
-                      drawer.close()
-                    }
-                  }
-                } //end of AppDrawer
-
-                AppText {
-                  id: testTxt
-                  anchors.centerIn: parent
-                  font.pixelSize: sp(18)
-                  text: "Swipe from left to open drawer"
-                }
-
-                AppButton {
-                  text: "Open drawer manually"
-                  anchors.top: testTxt.bottom
-                  anchors.horizontalCenter: parent.horizontalCenter
-                  onClicked: drawer.open()
-
-              }
-       }
-      }
+    }
     }
     NavigationItem {
       title: qsTr("up")
@@ -93,3 +63,4 @@ import QtQuick 2.5
       }
     }
   }
+}
