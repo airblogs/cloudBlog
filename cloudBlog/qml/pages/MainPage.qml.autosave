@@ -29,16 +29,12 @@ Page
       icon: IconType.list
 
       NavigationStack {
-
          MePage{}
-
-
-    }
+        }
     }
     NavigationItem {
       title: qsTr("up")
       icon: IconType.heartbeat
-
       NavigationStack {
         Page {
           title: "Navigation Switch"

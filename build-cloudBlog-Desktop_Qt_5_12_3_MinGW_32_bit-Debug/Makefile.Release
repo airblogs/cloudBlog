@@ -55,13 +55,10 @@ OBJECTS       = release/main.o \
 		release/main.o \
 		release/qrc_resources_user.o
 
-DIST          = qml/pages/ItemPage_copy.qml \
-		qml/widgets/SinalBox.qml \
-		qml/pages/FirstPage.qml \
-		qml/pages/SecondPage.qml \
-		qml/pages/FourPage.qml \
-		qml/pages/FivePage.qml \
-		qml/pages/ThreePage.qml  ..\cloudBlog\main.cpp \
+DIST          = qml/pages/ItemPage.qml \
+		qml/pages/MePage.qml \
+		qml/pages/ItemPage_copy.qml \
+		qml/widgets/SinalBox.qml  ..\cloudBlog\main.cpp \
 		..\cloudBlog\main.cpp \
 		..\cloudBlog\main.cpp
 QMAKE_TARGET  = cloudBlog

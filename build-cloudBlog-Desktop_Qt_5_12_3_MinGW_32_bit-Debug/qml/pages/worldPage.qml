@@ -2,32 +2,24 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.2
 import "."
-ListPage
+Page
 {
-    id:page;
-    title: qsTr("world");
 
+  Navigation {
+          id: navigation
+          navigationMode:navigationModeTabs
+          navigationDrawerItem: Text {
+            text: "Open"
+            anchors.centerIn: parent
+            color: navigation.navigationDrawerItemPressed ? "red" : "green"
+          }
 
-    titleItem: Icon
-    {
-        icon:IconType.twitter;
-        color:"white";
-        size:dp(24)
+    NavigationItem  {
+      title: qsTr("Look");
+      icon: IconType.cloud
 
+      NavigationStack {
+      }
     }
-    listView.emptyText.text: qsTr("No lists")
-
-    onItemSelected: {
-      console.debug("Selected list at position", index)
-
-      navigationStack.push(mainPageComponent, { title: "are you ok?", rightBarItem: null })
-    }
-    property int numItems: 10
-    model: [
-      { "text": "C++", "detailText": "5 page" },
-      { "text": "qml", "detailText": "1 page" },
-      { "text": "qwidget", "detailText": "3 pages" }
-    ]
-
-
+   }
 }
