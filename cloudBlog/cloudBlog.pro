@@ -62,8 +62,11 @@ macx {
 }
 
 DISTFILES += \
-    qml/pages/ItemPage.qml \
-    qml/pages/MePage.qml \
     qml/pages/ItemPage_copy.qml \
-    qml/widgets/SinalBox.qml
+    qml/widgets/SinalBox.qml \
+    qml/pages/FirstPage.qml \
+    qml/pages/SecondPage.qml \
+    qml/pages/FourPage.qml \
+    qml/pages/FivePage.qml \
+    qml/pages/ThreePage.qml
 

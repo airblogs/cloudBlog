@@ -15,51 +15,44 @@ Page
           }
 
     NavigationItem  {
-      title: qsTr("Look");
+      title: qsTr("广场");
       icon: IconType.cloud
 
       NavigationStack {
-          ItemPage{}
+        FirstPage{}
       }
     }
 
 
     NavigationItem {
-      title: qsTr("Me")
+      title: qsTr("文件夹")
       icon: IconType.list
 
       NavigationStack {
-
-         MePage{}
-
-
-    }
-    }
-    NavigationItem {
-      title: qsTr("up")
-      icon: IconType.heartbeat
-
-      NavigationStack {
-        Page {
-          title: "Navigation Switch"
+         SecondPage{}
         }
-      }
     }
     NavigationItem {
-      title: "Collection"
-      icon: IconType.bookmark
-
+      title: qsTr("上传")
+      icon: IconType.heartbeat
       NavigationStack {
-        Page { title: "Dialogs Page" }
+           ThreePage{}
       }
     }
 
     NavigationItem {
-      title: "Settings"
+      title: "回顾"
+      icon: IconType.bookmark
+        FourPage{}
+
+    }
+
+    NavigationItem {
+      title: "设置"
       icon: IconType.cogs
 
       NavigationStack {
-        Page { title: "Settings Page" }
+       FivePage{}
       }
     }
   }
