@@ -24,9 +24,9 @@ ListPage
     }
     property int numItems: 10
     model: [
-      { "text": "Felgo Developers", "detailText": "49.213 members" },
-      { "text": "App Developers", "detailText": "10.968 members" },
-      { "text": "Random things", "detailText": "4.323 members" }
+      { "text": "C++", "detailText": "5 page" },
+      { "text": "qml", "detailText": "1 page" },
+      { "text": "qwidget", "detailText": "3 pages" }
     ]
 
 

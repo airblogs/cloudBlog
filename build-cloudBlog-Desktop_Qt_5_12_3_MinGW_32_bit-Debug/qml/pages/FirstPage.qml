@@ -20,7 +20,7 @@ ListPage
     onItemSelected: {
       console.debug("Selected list at position", index)
 
-      navigationStack.push(mainPageComponent, { title: "are you ok?", rightBarItem: null })
+      //navigationStack.push(mainPageComponent, { title: "are you ok?", rightBarItem: null })
     }
     property int numItems: 10
     model: [
