@@ -8,9 +8,15 @@ App {
     //  * Remove the Felgo Splash Screen or set a custom one (available with the Pro Licenses)
     //  * Add plugins to monetize, analyze & improve your apps (available with the Pro Licenses)
     //licenseKey: "<generate one from https://felgo.com/licenseKey>"
-    onInitTheme:
-    {
-
+    onInitTheme: {
+      // Set styles
+      Theme.colors.tintColor = "#57adee"
+      Theme.colors.backgroundColor = "#eee"
+      Theme.navigationBar.backgroundColor = Theme.tintColor
+      Theme.navigationBar.titleColor = "white"
+      Theme.navigationBar.itemColor = "white"
+      Theme.colors.statusBarStyle = Theme.colors.statusBarStyleWhite
+      Theme.platform="ios";
     }
 
     MainPage{}

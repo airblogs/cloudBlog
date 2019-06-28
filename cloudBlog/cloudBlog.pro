@@ -68,5 +68,6 @@ DISTFILES += \
     qml/pages/SecondPage.qml \
     qml/pages/FourPage.qml \
     qml/pages/FivePage.qml \
-    qml/pages/ThreePage.qml
+    qml/pages/ThreePage.qml \
+    images/head.jpg
 

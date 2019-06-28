@@ -61,7 +61,8 @@ DIST          = qml/pages/ItemPage_copy.qml \
 		qml/pages/SecondPage.qml \
 		qml/pages/FourPage.qml \
 		qml/pages/FivePage.qml \
-		qml/pages/ThreePage.qml  ..\cloudBlog\main.cpp \
+		qml/pages/ThreePage.qml \
+		images/head.jpg  ..\cloudBlog\main.cpp \
 		..\cloudBlog\main.cpp \
 		..\cloudBlog\main.cpp
 QMAKE_TARGET  = cloudBlog
