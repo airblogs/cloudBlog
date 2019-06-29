@@ -25,7 +25,7 @@ Item {
 
       // Feed
       HttpRequest.get(Qt.resolvedUrl("../feed.json"))
-      .then(function(res) {
+      .then(function(res){
         var json = JSON.parse(res.body)
         var model = []
 

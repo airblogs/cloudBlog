@@ -7,7 +7,7 @@ import "../widgets"
 import "../model"
 
 ListPage {
-  id: page
+  id: page1
 
   title: qsTr("Home")
 
@@ -22,7 +22,9 @@ ListPage {
     id: listModel
     source: dataModel.timeline && dataModel.timeline.slice(0, numItems)
     keyField: "id"
+
   }
+
   delegate: TweetRow {
     id: row
     item: listModel.get(index)
@@ -41,6 +43,8 @@ ListPage {
   listView.footer: VisibilityRefreshHandler {
     canRefresh: dataModel.timeline ? numItems < dataModel.timeline.length : false
     onRefresh: loadOldTimer.start()
+
+
   }
 
   //load new tweets with pull handler
@@ -53,9 +57,12 @@ ListPage {
   Timer {
     // Fake loading of new tweets in background
     id: loadNewTimer
-    interval: 5000
+    interval: 1000
     onTriggered: {
-
+        onModelChanged:
+        {
+         navigationStack.clearAndPush(detailPageComponent,{ tweet:""});
+        }
     }
   }
 
