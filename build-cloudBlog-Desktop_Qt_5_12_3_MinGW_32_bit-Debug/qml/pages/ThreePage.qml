@@ -1,6 +1,7 @@
 ﻿import Felgo 3.0
 import QtQuick 2.0
 import QtQuick.Controls 1.2
+import QtQuick.Dialogs 1.2
 Page {
     id: page
 
@@ -9,7 +10,7 @@ Page {
     property  string textTitle: it && it.title || ""
     property string textCotent: it && it.text || ""
     // remove focus from textedit if background is clicked
-    signal saveText(var title,var content);
+
     rightBarItem: IconButtonBarItem {
       id:id;
       visible: title.text!=="" ;
@@ -17,7 +18,8 @@ Page {
       onClicked:
       {
        console.log(title.text,content.text);
-        saveText(title.text,content.text);
+        logic.saveText(title.text,content.text,images.source);
+
       }
     }
 
@@ -60,7 +62,7 @@ Page {
                    width: parent.width;
                    anchors.top:parent.top;
                    anchors.bottom: divider2.top
-
+                    opacity: 0.5
                  }
                  Rectangle {
                    id: divider2
@@ -75,12 +77,23 @@ Page {
                      height: dp(50)
                      width: parent.width;
                      anchors.bottom: parent.bottom
-                     color: "red";
-                      Column {
-                       anchors.right: parent.right
-                       anchors.left: parent.left
-                       anchors.top: parent.top
-                     }
+                     AppButton {
+                             anchors.centerIn: parent
+                             text: "Display CameraPicker"
+                             onClicked: {
+                               nativeUtils.displayImagePicker("test")
+                             }
+                           }
+
+                           Connections {
+                             target: nativeUtils
+                             onImagePickerFinished: {
+                               if(accepted)images.source = path
+                             }
+                           }
+
+
+
                  }
         }
 
@@ -95,24 +108,24 @@ Page {
             anchors.left: parent.left
 
             RoundedImage {
-
+            id:images
             fillMode: Image.PreserveAspectCrop
             visible:true;
             width: parent.width;
 
             anchors.fill: parent;
-            source: "../../../cloudBlog/images/head.jpg"
+            source: ""
 
             MouseArea {
               anchors.fill: parent
               onClicked: {
-                  if(contentImage.source=="")
+                  if(images.source=="")
                   {
 
                   }
                   else
                   {
-                  PictureViewer.show(app, contentImage.source)
+                  PictureViewer.show(page, images.source)
                   }
               }
             }

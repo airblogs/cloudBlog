@@ -19,5 +19,5 @@ App {
       Theme.platform="ios";
     }
 
-    MainPage{}
+    TwitterMainItem{}
 }

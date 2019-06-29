@@ -1,0 +1,72 @@
+﻿[
+ {
+  "text": "傻媳妇儿",
+
+  "created_at": "Wed Jan 20 16:16:17 +0000 2016",
+  "retweet_count": 0,
+  "id": 689843902380015616,
+
+  "user": {
+   "id": 18873073,
+   "created_at": "Sun Jan 11 17:33:23 +0000 2009",
+
+   "name": "Janie Clayton",
+   "screen_name": "RedQueenCoder",
+   "profile_image_url": "http://pic.sc.chinaz.com/files/pic/pic9/201906/bpic12362.jpg",
+
+   "entities": {
+
+   },
+   "protected": false,
+   "followers_count": 1956,
+   "has_extended_profile": false,
+   "friends_count": 1020,
+   "is_translation_enabled": false,
+   "profile_background_color": "352726",
+   "listed_count": 155,
+   "verified": false,
+   "favourites_count": 6375,
+   "notifications": false,
+   "geo_enabled": true,
+   "statuses_count": 21907,
+   "is_translator": false,
+   "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/794714632/5b8818c1797316685a21fa25aa96cd0f.jpeg",
+   "profile_background_tile": true,
+   "profile_link_color": "932CCF",
+   "profile_sidebar_border_color": "FFFFFF",
+   "profile_sidebar_fill_color": "99CC33",
+   "profile_text_color": "3E4415",
+   "profile_use_background_image": true,
+   "default_profile_image": false,
+   "following": false,
+   "follow_request_sent": false
+  },
+  "favorited": false,
+  "geo": null,
+  "coordinates": null,
+  "lang": "en",
+  "contributors": null,
+  "favorite_count": 2,
+  "entities": {
+   "hashtags": [],
+   "symbols": [],
+   "urls": [],
+   "user_mentions": []
+  },
+    "entities": {
+     "media": [
+      {
+
+       "display_url": "pic.twitter.com/7ZrX1P4nrG",
+       "expanded_url": "http://twitter.com/timmitra/status/689837410310496256/photo/1",
+       "media_url": "http://pic.sc.chinaz.com/files/pic/pic9/201906/bpic12362.jpg",
+       "media_url_https": "https://pbs.twimg.com/media/CZLLdlzVAAA6drI.jpg",
+       "url": "https://t.co/7ZrX1P4nrG",
+       "type": "photo"
+      }
+     ]
+    },
+  "retweeted": false
+ }
+
+]

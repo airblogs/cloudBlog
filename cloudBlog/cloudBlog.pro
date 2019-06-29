@@ -40,6 +40,11 @@ RESOURCES += #    resources.qrc # uncomment for publishing
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
     main.cpp \
+    main.cpp \
+    main.cpp \
+    main.cpp \
+    main.cpp \
+    main.cpp \
     main.cpp
 
 
@@ -69,5 +74,6 @@ DISTFILES += \
     qml/pages/FourPage.qml \
     qml/pages/FivePage.qml \
     qml/pages/ThreePage.qml \
-    images/head.jpg
+    images/head.jpg \
+    qml/pages/PhotoPage.qml
 

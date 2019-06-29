@@ -5,6 +5,13 @@ import "."
 Page
 {
 
+
+    //Component { id: mainPageComponent; MainPage { } }
+    Component { id: detailPageComponent; FirstPage { } }
+    Component { id: profilePageComponent; SecondPage { } }
+    Component { id: listsPageComponent; ThreePage { } }
+    //Component { id: profilePageComponent; FourPage { } }
+    //Component { id: listsPageComponent; FivePage { } }
   Navigation {
           id: navigation
           navigationMode:navigationModeTabs
