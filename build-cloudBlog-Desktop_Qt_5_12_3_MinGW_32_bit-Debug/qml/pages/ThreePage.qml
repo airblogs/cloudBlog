@@ -2,6 +2,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.2
 import QtQuick.Dialogs 1.2
+import "../widgets"
 Page {
     id: page
 
@@ -19,7 +20,11 @@ Page {
       {
        console.log(title.text,content.text);
         logic.saveText(title.text,content.text,images.source);
-
+        messageBox.visible=true;
+        timerId.start();
+        title.text="";
+        content.text="";
+        images.source="";
       }
     }
 
@@ -127,6 +132,23 @@ Page {
              }
 
         }
-}
 
+        Timer{
+               id:timerId
+               interval: 1500
+               onTriggered: {
+                   console.log("timer out")
+                   messageBox.visible = false;
+               }
+           }
+        MessgBox{
+                id:messageBox
+                 anchors.centerIn: parent.Center;
+                 visible: false;
+                 anchors.verticalCenter: parent.verticalCenter;
+                 anchors.horizontalCenter:parent.horizontalCenter;
+
+        }
+
+}
 

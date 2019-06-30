@@ -34,7 +34,7 @@ Item {
 
   signal selected(int index)
   signal profileSelected(int index)
-
+  signal hold(int index);
 
   Rectangle {
     color: cellArea.pressed ? "#646464" : "#fff"
@@ -52,6 +52,8 @@ Item {
     anchors.fill: parent
 
     onClicked: selected(typeof index !== "undefined" ? index : 0)
+    onPressAndHold: {  hold(typeof index !== "undefined" ? index : 0) }
+
   }
 
   // Main cell content inside this item

@@ -75,5 +75,6 @@ DISTFILES += \
     qml/pages/FivePage.qml \
     qml/pages/ThreePage.qml \
     images/head.jpg \
-    qml/pages/PhotoPage.qml
+    qml/pages/PhotoPage.qml \
+    qml/widgets/MessgBox.qml
 

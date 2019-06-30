@@ -76,7 +76,7 @@ Item {
       newTweet.entities.media[0].media_url=imageSource;
 
       newTweet.image=imageSource;
-      _.timeline.unshift(_.tweetModel(newTweet)) //insert at position 0
+      _.timeline.push( _.tweetModel(newTweet)) //insert at position 0
       _.timelineChanged()
 
     }

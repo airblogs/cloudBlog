@@ -28,23 +28,26 @@ ListPage {
   delegate: TweetRow {
     id: row
     item: listModel.get(index)
-
+    onHold: {
+    console.debug("hode item at index:", index)
+    }
     onSelected: {
       console.debug("Selected item at index:", index)
-      navigationStack.push(detailPageComponent, { tweet: row.item })
+
     }
+
     onProfileSelected: {
       console.debug("Selected profile at index:", index)
 //      navigationStack.push(profilePageComponent, { profile: row.item.user })
     }
+
+
   }
 
   //load older tweets with visibility handler
   listView.footer: VisibilityRefreshHandler {
     canRefresh: dataModel.timeline ? numItems < dataModel.timeline.length : false
     onRefresh: loadOldTimer.start()
-
-
   }
 
 
@@ -61,13 +64,9 @@ ListPage {
     interval: 1000
     onTriggered: {
          navigationStack.clearAndPush(detailPageComponent,{ tweet:""});
-
     }
   }
-    onModelChanged:
-    {
-        console.log("改变");
-    }
+
   Timer {
     // Fake loading of older tweets in background
     id: loadOldTimer
@@ -78,4 +77,6 @@ ListPage {
       listView.restoreScrollPosition(pos)
     }
   }
+
+
 }
