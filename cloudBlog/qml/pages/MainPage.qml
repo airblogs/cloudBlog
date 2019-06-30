@@ -24,7 +24,7 @@ Page
     NavigationItem  {
       title: qsTr("广场");
       icon: IconType.cloud
-
+      id:firstPage
       NavigationStack {
         FirstPage{}
       }

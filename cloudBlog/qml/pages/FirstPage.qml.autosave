@@ -61,13 +61,10 @@ ListPage {
     interval: 1000
     onTriggered: {
          navigationStack.clearAndPush(detailPageComponent,{ tweet:""});
-
+        page1.listView.
     }
   }
-    onModelChanged:
-    {
-        console.log("改变");
-    }
+ 
   Timer {
     // Fake loading of older tweets in background
     id: loadOldTimer

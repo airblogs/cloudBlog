@@ -47,6 +47,7 @@ ListPage {
 
   }
 
+
   //load new tweets with pull handler
   pullToRefreshHandler {
     pullToRefreshEnabled: true
@@ -59,13 +60,14 @@ ListPage {
     id: loadNewTimer
     interval: 1000
     onTriggered: {
-        onModelChanged:
-        {
          navigationStack.clearAndPush(detailPageComponent,{ tweet:""});
-        }
+
     }
   }
-
+    onModelChanged:
+    {
+        console.log("改变");
+    }
   Timer {
     // Fake loading of older tweets in background
     id: loadOldTimer

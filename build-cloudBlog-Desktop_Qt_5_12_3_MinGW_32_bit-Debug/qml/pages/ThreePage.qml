@@ -41,8 +41,6 @@ Page {
            height: px(1)
            anchors.bottom: title.bottom
          }
-
-
             Rectangle
             {
                 id:editBox;
@@ -91,9 +89,6 @@ Page {
                                if(accepted)images.source = path
                              }
                            }
-
-
-
                  }
         }
 

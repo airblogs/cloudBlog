@@ -174,7 +174,7 @@ Item {
         anchors.fill: parent
 
         onClicked: {
-          PictureViewer.show(page, image.source)
+          PictureViewer.show(page1, image.source)
         }
       }
     }
