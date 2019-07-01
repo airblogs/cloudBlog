@@ -30,6 +30,7 @@ ListPage {
     item: listModel.get(index)
     onHold: {
     console.debug("hode item at index:", index)
+        popupMenu.popup();
     }
     onSelected: {
       console.debug("Selected item at index:", index)
@@ -78,5 +79,21 @@ ListPage {
     }
   }
 
+  Menu{
+          id : popupMenu
+          title: "&File"
+          MenuItem {
+                 text: "&点赞+1"
 
+          }
+          MenuItem {
+                 text: "&删除"
+                 onTriggered:listModel.remove(listModel.index)
+          }
+          MenuItem {
+                 text: "&收藏"
+                 onTriggered:Qt.quit()
+          }
+
+      }
 }
