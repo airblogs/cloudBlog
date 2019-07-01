@@ -8,9 +8,7 @@ import "../model"
 
 ListPage {
   id: page1
-
   title: qsTr("Home")
-
 
   titleItem: Icon {
     icon: IconType.twitter
@@ -30,16 +28,19 @@ ListPage {
     item: listModel.get(index)
     onHold: {
     console.debug("hode item at index:", index)
+
         popupMenu.popup();
     }
     onSelected: {
       console.debug("Selected item at index:", index)
-
+        navigationStack.push(detailPageComponent, {tweet:row.item})
     }
+
+
 
     onProfileSelected: {
       console.debug("Selected profile at index:", index)
-//      navigationStack.push(profilePageComponent, { profile: row.item.user })
+      navigationStack.push(profilePageComponent, { profile: row.item.user })
     }
 
 
@@ -64,7 +65,7 @@ ListPage {
     id: loadNewTimer
     interval: 1000
     onTriggered: {
-         navigationStack.clearAndPush(detailPageComponent,{ tweet:""});
+
     }
   }
 
@@ -84,7 +85,7 @@ ListPage {
           title: "&File"
           MenuItem {
                  text: "&点赞+1"
-
+              onTriggered:{}
           }
           MenuItem {
                  text: "&删除"

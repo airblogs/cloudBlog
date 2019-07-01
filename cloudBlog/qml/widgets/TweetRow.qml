@@ -35,7 +35,18 @@ Item {
   signal selected(int index)
   signal profileSelected(int index)
   signal hold(int index);
+  function favs()
+  {
+      if(isFaved)
+      {
 
+      }
+      else
+      {
+       favs=true;
+        isFaved=true;
+      }
+  }
   Rectangle {
     color: cellArea.pressed ? "#646464" : "#fff"
     anchors.fill: parent

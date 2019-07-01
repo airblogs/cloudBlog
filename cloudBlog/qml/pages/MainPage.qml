@@ -2,14 +2,16 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.2
 import "."
+import "../widgets"
 Page
 {
 
 
     //Component { id: mainPageComponent; MainPage { } }
-    Component { id: detailPageComponent; FirstPage { } }
+      Component { id: firstPageComponent; FirstPage { } }
+    Component { id: detailPageComponent; ContentPage { } }
     Component { id: profilePageComponent; SecondPage { } }
-    Component { id: listsPageComponent; ThreePage { } }
+    Component { id: secondPageComponent; ThreePage { } }
     //Component { id: profilePageComponent; FourPage { } }
     //Component { id: listsPageComponent; FivePage { } }
   Navigation {

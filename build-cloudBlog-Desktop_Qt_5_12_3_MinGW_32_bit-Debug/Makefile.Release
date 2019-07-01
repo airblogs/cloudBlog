@@ -74,7 +74,8 @@ DIST          = qml/pages/ItemPage_copy.qml \
 		qml/pages/ThreePage.qml \
 		images/head.jpg \
 		qml/pages/PhotoPage.qml \
-		qml/widgets/MessgBox.qml  ..\cloudBlog\main.cpp \
+		qml/widgets/MessgBox.qml \
+		qml/widgets/ContentPage.qml  ..\cloudBlog\main.cpp \
 		..\cloudBlog\main.cpp \
 		..\cloudBlog\main.cpp \
 		..\cloudBlog\main.cpp \
