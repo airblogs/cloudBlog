@@ -2,7 +2,7 @@
 import QtQuick.Layouts 1.1
 import Felgo 3.0
 
-Page {
+ListPage {
   id: detailPage
 
   title: qsTr("Tweet")
@@ -34,7 +34,6 @@ Page {
 
       MouseArea {
         anchors.fill: parent
-
         onClicked: {
           navigationStack.push(profilePageComponent, { profile: tweet.user })
         }
@@ -89,10 +88,6 @@ Page {
       Layout.fillHeight: true
       Layout.alignment: Qt.AlignTop
 
-
-      onLinkActivated: {
-        Qt.openUrlExternally(link)
-      }
     }
 
     RoundedImage {

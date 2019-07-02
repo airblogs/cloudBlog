@@ -28,22 +28,16 @@ ListPage {
     item: listModel.get(index)
     onHold: {
     console.debug("hode item at index:", index)
-
         popupMenu.popup();
     }
     onSelected: {
       console.debug("Selected item at index:", index)
         navigationStack.push(detailPageComponent, {tweet:row.item})
     }
-
-
-
     onProfileSelected: {
       console.debug("Selected profile at index:", index)
       navigationStack.push(profilePageComponent, { profile: row.item.user })
     }
-
-
   }
 
   //load older tweets with visibility handler
@@ -65,7 +59,7 @@ ListPage {
     id: loadNewTimer
     interval: 1000
     onTriggered: {
-
+            navigationStack.clearAndPush(firstPageComponent,{});
     }
   }
 
@@ -85,7 +79,13 @@ ListPage {
           title: "&File"
           MenuItem {
                  text: "&点赞+1"
-              onTriggered:{}
+              onTriggered:{
+                    console.log(dataModel.timeline[listView.currentIndex].favorited)
+                dataModel.timeline[listView.currentIndex].favorited=true;
+                   dataModel.timeline[listView.currentIndex].favorite_count+=1;
+               console.log(dataModel.timeline[listView.currentIndex].favorited);
+                   navigationStack.clearAndPush(firstPageComponent,{});
+              }
           }
           MenuItem {
                  text: "&删除"
