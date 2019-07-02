@@ -9,6 +9,7 @@ Page
 
     //Component { id: mainPageComponent; MainPage { } }
       Component { id: firstPageComponent; FirstPage { } }
+         Component { id: commentPageComponent; CommentPage { } }
     Component { id: detailPageComponent; ContentPage { } }
     Component { id: profilePageComponent; SecondPage { } }
     Component { id: secondPageComponent; ThreePage { } }

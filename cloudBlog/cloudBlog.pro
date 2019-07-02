@@ -77,5 +77,7 @@ DISTFILES += \
     images/head.jpg \
     qml/pages/PhotoPage.qml \
     qml/widgets/MessgBox.qml \
-    qml/widgets/ContentPage.qml
+    qml/widgets/ContentPage.qml \
+    qml/widgets/CommentPage.qml \
+    qml/widgets/CommentItem.qml
 

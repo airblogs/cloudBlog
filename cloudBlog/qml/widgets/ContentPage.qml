@@ -1,19 +1,43 @@
 ﻿import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Felgo 3.0
-
-ListPage {
+import "../model"
+ListPage{
   id: detailPage
-
   title: qsTr("Tweet")
   backgroundColor: "white"
-
   property var tweet
+
+
+
+  property string icon: tweet && tweet.icon || ""
+  property string name: tweet && tweet.name || ""
+  property string handle:tweet && tweet.handle || ""
+  property string time: tweet && tweet.time || ""
+  property string text: tweet && tweet.text || ""
+  property string image:tweet && tweet.image || ""
+
+  property bool actionsHidden: tweet && tweet.actionsHidden || false
+
+  property int favs: tweet && tweet.favorite_count || 0
+  property int retweets: tweet && tweet.retweet_count || 0
+
+  property bool isFaved: tweet && tweet.favorited || false
+  property bool isRetweeted: tweet && tweet.retweeted || false
+  // Temp, should be in theme!
+  property color favColor: "#FF6633"
+  property color retweetColor: "#77b255"
+  property color inactiveColor: "#CC99CC"
+
 
   GridLayout {
     id: innerGrid
 
     // Auto-break after 2 columns, so we do not have to set row & column manually
+
+
+
+
     columns: 2
     rowSpacing: dp(8)
     columnSpacing: dp(8)
@@ -74,24 +98,24 @@ ListPage {
     }
 
 
-    Text {
+     Text {
       id: contentText
       color: Theme.textColor
       linkColor: Theme.tintColor
       font.family: Theme.normalFont.name
+      style: Text.Outline
       font.pixelSize: dp(18)
       lineHeight: 1.15
       text: tweet.text
       wrapMode: Text.WordWrap
       Layout.columnSpan: 2
       Layout.fillWidth: true
-      Layout.fillHeight: true
-      Layout.alignment: Qt.AlignTop
 
+      Layout.alignment: Qt.AlignTop
     }
 
     RoundedImage {
-      id: contentImage
+        id: contentImage
 
       fillMode: Image.PreserveAspectCrop
       visible: tweet.image && tweet.image.length > 0
@@ -109,7 +133,7 @@ ListPage {
         anchors.fill: parent
 
         onClicked: {
-          PictureViewer.show(app, contentImage.source)
+          PictureViewer.show(detailPage, contentImage.source)
         }
       }
     }
@@ -140,44 +164,101 @@ ListPage {
       Layout.fillWidth: true
     }
 
-    Flow {
-      spacing: dp(6)
+    Row {
+      visible: !actionsHidden
+
+      spacing: dp(4)
 
       Layout.columnSpan: 2
       Layout.fillWidth: true
+      Layout.preferredWidth: parent.width
+      Layout.preferredHeight: replyIcon.height + dp(4)
+      Layout.alignment: Qt.AlignBottom
 
-      Text {
-        text: tweet.retweet_count
-        font.family: Theme.normalFont.name
-        font.bold: true
-        font.pixelSize: sp(14)
-        color: Theme.textColor
+
+      Icon {
+        icon: IconType.retweet
+        color: isRetweeted ? retweetColor : inactiveColor
       }
 
       Text {
-        text: qsTr("Retweets")
-        font.family: Theme.normalFont.name
-        font.pixelSize: sp(14)
-        font.capitalization: Font.AllUppercase
-        color: Theme.secondaryTextColor
+        text: retweets
+        visible: retweets > 0
+        color: isRetweeted ? retweetColor : inactiveColor
+        font.pixelSize: sp(13)
+      }
+
+      Item {
+        width: dp(28)
+        height: 1
+      }
+      Icon {
+        id: replyIcon
+        icon: IconType.comment
+        color: inactiveColor
+
+        MouseArea
+        {
+              anchors.fill: parent;
+            onClicked:
+            {
+                navigationStack.push(commentPageComponent,{comment:tweet});
+            }
+
+        }
+
+
       }
 
       Text {
-        text: tweet.favorite_count
-        font.family: Theme.normalFont.name
-        font.bold: true
-        font.pixelSize: sp(14)
-        color: Theme.textColor
+        text:retweets
+        visible:true;
+        color: inactiveColor
+        font.pixelSize: sp(13)
+      }
+      Item {
+        width: dp(28)
+        height: 1
+      }
+
+
+      Icon {
+        icon: IconType.star
+        color: isFaved ? favColor : inactiveColor
+        MouseArea
+        {
+            anchors.fill: parent;
+            onClicked:
+            {
+                if(isFaved==1)
+                {
+                    favs-=1;
+
+                }
+                else
+                {
+                    favs+=1;
+                }
+                isFaved=!isFaved;
+
+            }
+
+        }
+        Behavior on color {
+                ColorAnimation { duration: 150; easing.type: Easing.InOutQuad }
+        }
+
       }
 
       Text {
-        text: qsTr("Favorites")
-        font.family: Theme.normalFont.name
-        font.pixelSize: sp(14)
-        font.capitalization: Font.AllUppercase
-        color: Theme.secondaryTextColor
+        text: favs
+        visible: favs > 0
+        color: isFaved ? favColor : inactiveColor
+        font.pixelSize: sp(13)
+
       }
     }
+
 
     // Divider
     Rectangle {
@@ -189,4 +270,5 @@ ListPage {
       Layout.fillWidth: true
     }
   }
+
 }
