@@ -3,6 +3,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.2
 import QtQuick.Dialogs 1.2
 import "../widgets"
+
 Page {
     id: page
 

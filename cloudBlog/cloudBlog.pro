@@ -45,6 +45,7 @@ SOURCES += main.cpp \
     main.cpp \
     main.cpp \
     main.cpp \
+    main.cpp \
     main.cpp
 
 
@@ -75,7 +76,6 @@ DISTFILES += \
     qml/pages/FivePage.qml \
     qml/pages/ThreePage.qml \
     images/head.jpg \
-    qml/pages/PhotoPage.qml \
     qml/widgets/MessgBox.qml \
     qml/widgets/ContentPage.qml \
     qml/widgets/CommentPage.qml \
