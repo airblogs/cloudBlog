@@ -47,7 +47,7 @@ ItemDelegate {
             {
                 width:60;
                 height: 40;
-
+                radius: 20;
                 Layout.alignment: Qt.AlignTop
                 Text {
                     id: grade
@@ -56,16 +56,11 @@ ItemDelegate {
                     anchors.verticalCenter: parent.verticalCenter;
                     anchors.horizontalCenter: parent.horizontalCenter;
                 }
+
             }
         }
 
-        CheckBox {
-            id: alarmRepeat
-            text: qsTr("Repeat")
-            checked: model.repeat
-            visible: root.checked
-            onToggled: model.repeat = checked
-        }
+
         Flow {
             visible: root.checked && model.repeat
             Layout.fillWidth: true
@@ -123,21 +118,22 @@ ItemDelegate {
                            if(acount==6)
                            {
                               model.isOK=true;
-                            acount+=model.dayOfWeek+1;
-                           }    else
+                              acount+=model.dayOfWeek+1;
+                           }
+                           else
                            {
                            checked=0;
                            }
-
-                         break;
+                            break;
                         }
                         case 4:
                         {
                            if(acount==10)
                            {
                               model.isOK=true;
-                                acount+=model.dayOfWeek+1;
-                                }    else
+                              acount+=model.dayOfWeek+1;
+                           }
+                           else
                            {
                            checked=0;
                            }
@@ -145,10 +141,10 @@ ItemDelegate {
                         }
                         case 5:
                         {
-                           if(acount==16)
+                           if(acount==15)
                            {
                               model.isOK=true;
-                                acount+=model.dayOfWeek+1;
+                              acount+=model.dayOfWeek+1;
                            }
                            else
                            {
@@ -158,11 +154,12 @@ ItemDelegate {
                         }
                         case 6:
                         {
-                           if(acount==23)
+                           if(acount==21)
                            {
                               model.isOK=true;
                                 acount+=model.dayOfWeek+1;
-                           }    else
+                           }
+                           else
                            {
                            checked=0;
                            }
@@ -195,13 +192,17 @@ ItemDelegate {
             id : popupMenu
             title: "&File"
             MenuItem {
-                   text: "&启动"
-                    onTriggered:model.activated;
+                   text: "&启动";
+                    onTriggered:model.activated,model.repeat;
             }
             MenuItem {
                    text: "&完成"
-                   onTriggered:;
-            }
+                   onTriggered:
+                   {
+                       model.repeat=false;
+
+                   }
+             }
             MenuItem {
                    text: "&删除"
                     onTriggered:root.ListView.view.model.remove(root.ListView.view.currentIndex, 1)

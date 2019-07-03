@@ -25,7 +25,7 @@ Dialog {
             "year": yearTumbler.years[yearTumbler.currentIndex],
             "activated": true,
             "label": "",
-            "repeat": false,
+            "repeat":true,
             "daysToRepeat": [
                 { "dayOfWeek": 0, "repeat": false },
                 { "dayOfWeek": 1, "repeat": false },

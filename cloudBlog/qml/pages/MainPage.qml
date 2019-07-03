@@ -13,7 +13,7 @@ Page
     Component { id: detailPageComponent; ContentPage { } }
     Component { id: profilePageComponent; SecondPage { } }
     Component { id: secondPageComponent; ThreePage { } }
-    //Component { id: profilePageComponent; FourPage { } }
+    Component { id:fivePageComponent;FivePage { } }
     //Component { id: listsPageComponent; FivePage { } }
   Navigation {
           id: navigation
@@ -62,7 +62,9 @@ Page
       icon: IconType.cogs
 
       NavigationStack {
-       FivePage{}
+          Component.onCompleted: {
+            push(fivePageComponent, { profile: dataModel.currentProfile })
+          }
       }
     }
   }
