@@ -2,12 +2,16 @@
 import QtQuick.Layouts 1.1
 import Felgo 3.0
 import "../model"
-ListPage{
+FlickablePage{
   id: detailPage
   title: qsTr("Tweet")
   backgroundColor: "white"
   property var tweet
+  flickable.contentHeight: innerGrid.height
 
+  property real yBeginning: 0
+  property real yDelta: flickable.contentY - yBeginning
+  Component.onCompleted: yBeginning = flickable.contentY
 
 
   property string icon: tweet && tweet.icon || ""

@@ -10,11 +10,8 @@ ListPage {
   id: page1
   title: qsTr("Home")
 
-  titleItem: Icon {
-    icon: IconType.twitter
-    color: "white"
-    size: dp(24)
-  }
+
+
   property int numItems: 10
   model: JsonListModel {
     id: listModel
