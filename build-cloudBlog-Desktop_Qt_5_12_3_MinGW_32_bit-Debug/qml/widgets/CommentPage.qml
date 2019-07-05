@@ -30,7 +30,7 @@ ListPage {
     }
     model: JsonListModel {
       id: listModel
-      source: dataModel.timeline && dataModel.timeline.slice(0, numItems)
+      source: dataModel.comment && dataModel.comment.slice(0, numItems)
       keyField: "id"
 
     }

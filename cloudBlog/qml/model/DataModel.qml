@@ -10,7 +10,7 @@ Item {
   readonly property alias timeline: _.timeline
   readonly property alias messages: _.messages
   readonly property alias firstTweetData: _.firstTweetData
-
+  readonly property alias comment:_.comments
   Connections {
     id: logicConnection
 
@@ -42,26 +42,25 @@ Item {
         var raw = JSON.parse(res.body)
         var model = []
         for (var i = 0; i < raw.length; i++) {
-          var names = model.map(function(val) { return val.handle } )
-          var message = JSON.parse(JSON.stringify(raw[i]))
-          message.user = message.sender
-          message = _.tweetModel(message)
 
-          if (names.indexOf("@" + message.user.screen_name) === -1) {
-            message.actionsHidden = true
-            delete message.sender
-            delete message.image
-            delete message.retweeted
-            delete message.favorited
-            delete message.retweet_count
-            delete message.favorite_count
+          var message = JSON.parse(JSON.stringify(raw[i]))
             model.push(message)
-          }
         }
-        _.messages = model
+        _.comments= model
       })
     }
-
+    onComment:
+    {
+      var newComment={"id":"","name":"","anwser":"rh","time":"","favs":0,"comment":0,"text":""};
+        newComment.id=id;
+        newComment.name=name;
+        newComment.text=text;
+        newComment.time=time;
+        newComment.favs=favs;
+        newComment.text=text;
+        _.comments.push(newComment);
+        _.commentsChanged();
+    }
     // action 2 - addTweet
     onSaveText: {
       //create fake tweet as copy of first tweet with new text
@@ -89,7 +88,7 @@ Item {
     property var currentProfile
     property var timeline
     property var messages
-
+    property var comments
     property var firstTweetData
 
 

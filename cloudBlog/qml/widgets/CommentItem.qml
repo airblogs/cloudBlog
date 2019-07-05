@@ -8,13 +8,13 @@ Item {
 
   property var item: modelData
 
-  property string icon: item && item.icon || ""
+  property string icon: item && item.head || ""
   property string name: item && item.name || ""
   property string time: item && item.time || ""
   property string text: item && item.text || ""
-  property string handle:item && item.handle || ""
+  property string handle:item && item.anwser || ""
   property int favs: item && item.favorite_count || 0
-  property int retweets: item && item.retweet_count || 0
+  property int retweets: item && item.comment_count || 0
 
   property bool isFaved: item && item.favorited || false
   property bool isRetweeted: item && item.retweeted || false
@@ -99,7 +99,7 @@ Item {
       font.pixelSize: dp(12)
       lineHeight: dp(16)
       lineHeightMode: Text.FixedHeight
-      text: cell.handle
+      text: cell.handle==""? "":"回复@"+cell.handle;
       Layout.fillWidth: true
       verticalAlignment: Text.AlignBottom
       Layout.preferredWidth: parent.width
@@ -157,12 +157,22 @@ Item {
                                                                    qsTr("内容@"+name),
                                                                    function(ok, text) {
                                                                        if(text!=="")
-                                                                       listModel.append({icon:comment.icon,name:comment.name,time:Qt.formatDateTime(new Date(), "dddd\nyyyy-MM-dd"),text:text,handle:"回复"+comment.name})
+                                                                       listModel.append({id:cell.id,name:cell.name,anwser:cell.name,head:cell.icon,time:Qt.formatDateTime(new Date(), "dddd\nyyyy-MM-dd"),favorite_count:0,comment_count:0,text:text})
                                                                    }
                                                                    )
             }
         }
       }
+      Text {
+        text: retweets
+        visible: retweets >= 0
+        color: isFaved ? favColor : inactiveColor
+        font.pixelSize: sp(13)
+
+      }
+
+
+
       Item {
         width: dp(28)
         height: 1
@@ -185,7 +195,7 @@ Item {
 
       Text {
         text: favs
-        visible: favs > 0
+        visible: favs >= 0
         color: isFaved ? favColor : inactiveColor
         font.pixelSize: sp(13)
 
